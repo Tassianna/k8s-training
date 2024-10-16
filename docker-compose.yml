@@ -1,0 +1,26 @@
+version: "3.8"
+
+services:
+  frontend:
+    build:
+      dockerfile: ./frontend/Dockerfile
+    #image: tassianna/k8s-training:nginx
+    container_name: frontend
+    ports:
+      - 8080:80
+    networks:
+      - networkName
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    #image: tassianna/k8s-training:backend
+    container_name: backend
+    ports:
+      - 3000:3000
+    networks:
+      - networkName
+  
+networks:
+  networkName: 
+    driver: bridge
