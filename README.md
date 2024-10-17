@@ -3,23 +3,28 @@ Project structure: <br>
 k8s-training/ <br>
 ├── nginx/ <br>
 │   └── nginx.conf <br>
-├── website/ <br>
+├── frontend/ <br>
 │   ├── index.html <br>
 │   ├── styles.css <br>
+│   ├── Dockerfile <br>
 │   └── script.js <br>
-├── Dockerfile <br>
+├── backend/ <br>
+│   ├── server.json <br>
+│   └── Dockerfile <br>
 ├── k8s/ <br>
 │   ├── nginx-deployment.yml (containing both deployment and service for frontend ) <br>
 │   ├── backend-deployment.yml (containing both deployment and service for backend) <br>
 │   ├── ingress.yml <br>
 │   ├── namespace.yml <br>
 │   └── kustomization.yml <br>
+├── docker-compose.yml/ <br>
 └── README.md <br>
 
 ## After configuring the Dockerfiles and the nginx.conf files
-In order to build & push my docker images in both architectures I run: <br>
+* In order to build & push my docker images in both architectures I run: <br>
 `docker buildx build --platform linux/amd64,linux/arm64 -t tassianna/k8s-training:frontend -f frontend/Dockerfile --push .` <br>
 `docker buildx build --platform linux/amd64,linux/arm64 -t tassianna/k8s-training:backend -f backend/Dockerfile --push .` <br>
+* Run docker `compose up --build` for locally testing the app
 
 > The -f flag allows me to build my docker image on my root folder.
 > The --push flags push my images in my DockerHub directly.
