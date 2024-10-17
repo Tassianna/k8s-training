@@ -3,7 +3,7 @@ FROM node:alpine
 
 RUN npm i -g json-server
 
-COPY ./db.json /app/db.json
+COPY ./backend/db.json /app/db.json
 
 EXPOSE 3000
 

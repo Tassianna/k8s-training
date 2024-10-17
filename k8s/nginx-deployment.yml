@@ -18,6 +18,8 @@ spec:
         image: tassianna/k8s-training:frontend
         ports:
         - containerPort: 80
+          # command: ["/bin/bash", "-c", "--"]
+          # args: ["while true; do sleep 30; done;"]
 
 ---
 apiVersion: v1

@@ -12,8 +12,8 @@ services:
       - networkName
   backend:
     build:
-      context: ./backend
-      dockerfile: Dockerfile
+      #context: ./backend
+      dockerfile: ./backend/Dockerfile
     #image: tassianna/k8s-training:backend
     container_name: backend
     ports:
