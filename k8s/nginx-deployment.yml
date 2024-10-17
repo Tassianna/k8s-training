@@ -1,20 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web-deployment
+  name: frontend-deployment
+  namespace: frontend-ns
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: web
+      app: frontend
   template:
     metadata:
       labels:
-        app: web
+        app: frontend
     spec:
       containers:
-      - name: web
-        image: tassianna/k8s-training:nginx
+      - name: frontend
+        image: tassianna/k8s-training:frontend
         ports:
         - containerPort: 80
 
@@ -22,12 +23,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: web-loadbalancer
+  name: frontend-loadbalancer
+  namespace: frontend-ns
 spec:
   selector:
-    app: web
+    app: frontend
   ports:
   - port: 80
     targetPort: 80
-    nodePort: 30000
   type: LoadBalancer

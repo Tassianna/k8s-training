@@ -1,2 +1,5 @@
 resources:
 - nginx-deployment.yml
+- backend-deployment.yml
+- ingress.yml
+- namespace.yml
