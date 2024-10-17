@@ -46,7 +46,7 @@ In order to build & push my docker images in both architectures I run: <br>
 `kubectl get services -o wide --namespace frontend-ns` <br>
 * You should get something like this:
 `web-loadbalancer   LoadBalancer   xxx.xxx.xxx.xxx   xxxxxxxx.eu-west-2.elb.amazonaws.com    80:30000/TCP   10m    app=web` <br>
-* Frontend is available here: http://xxxxxxxx.eu-west-2.elb.amazonaws.com 
-* And the backend API: http://xxxxxxxx.eu-west-2.elb.amazonaws.com/api/products
+* Frontend is available here: http://a67c0da82303745bebb1998510c98f68-1045495366.eu-west-2.elb.amazonaws.com/
+* And the backend API: http://a67c0da82303745bebb1998510c98f68-1045495366.eu-west-2.elb.amazonaws.com/api/products
 
 ![Alt text](images/website.png)
