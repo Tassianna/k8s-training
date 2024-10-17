@@ -48,3 +48,5 @@ In order to build & push my docker images in both architectures I run: <br>
 `web-loadbalancer   LoadBalancer   xxx.xxx.xxx.xxx   xxxxxxxx.eu-west-2.elb.amazonaws.com    80:30000/TCP   10m    app=web` <br>
 * Frontend is available here: http://xxxxxxxx.eu-west-2.elb.amazonaws.com 
 * And the backend API: http://xxxxxxxx.eu-west-2.elb.amazonaws.com/api/products
+
+![Alt text](images/website.png)
