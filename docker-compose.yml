@@ -4,7 +4,7 @@ services:
   frontend:
     build:
       dockerfile: ./frontend/Dockerfile
-    #image: tassianna/k8s-training:nginx
+    #image: tassianna/k8s-training:frontend  #uncommend this to pull the docker images
     container_name: frontend
     ports:
       - 8080:80
@@ -14,7 +14,7 @@ services:
     build:
       #context: ./backend
       dockerfile: ./backend/Dockerfile
-    #image: tassianna/k8s-training:backend
+    #image: tassianna/k8s-training:backend  #uncommend this to pull the docker images
     container_name: backend
     ports:
       - 3000:3000
