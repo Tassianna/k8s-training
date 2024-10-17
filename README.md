@@ -1,5 +1,6 @@
 # k8s-training
 Project structure: <br>
+```
 k8s-training/ <br>
 ├── nginx/ <br>
 │   └── nginx.conf <br>
@@ -19,7 +20,7 @@ k8s-training/ <br>
 │   └── kustomization.yml <br>
 ├── docker-compose.yml/ <br>
 └── README.md <br>
-
+```
 ## After configuring the Dockerfiles and the nginx.conf files
 * In order to build & push my docker images in both architectures I run: <br>
 `docker buildx build --platform linux/amd64,linux/arm64 -t tassianna/k8s-training:frontend -f frontend/Dockerfile --push .` <br>
