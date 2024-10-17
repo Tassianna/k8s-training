@@ -21,13 +21,11 @@ In order to build & push my docker images in both architectures I run: <br>
 `docker buildx build --platform linux/amd64,linux/arm64 -t tassianna/k8s-training:frontend -f frontend/Dockerfile --push .` <br>
 `docker buildx build --platform linux/amd64,linux/arm64 -t tassianna/k8s-training:backend -f backend/Dockerfile --push .` <br>
 
-> The -f flag allows to build my docker image on my root folder and allows me to copy both nginx.conf and index.html in my container without getting any erros.
-> The --push flags pushes my image in my DockerHub directly.
+> The -f flag allows me to build my docker image on my root folder.
+> The --push flags push my images in my DockerHub directly.
 
-`cd /k8s             # change to the kubernetes folder` <br>
-`kubectl apply -k .  # and apply the kustomization file` <br>
-`kubectl get services -o wide --namespace frontend-ns` <br>
-`web-loadbalancer   LoadBalancer   xxx.xxx.xxx.xxx   xxxxxxxx.eu-west-2.elb.amazonaws.com    80:30000/TCP   10m    app=web` <br>
+## Switching to eks cluster
+`aws eks update-kubeconfig --region <region-code> --name <my-cluster>` <br>
 
 ## After switching to eks cluster
 * Make sure that the ingress controller is installed:   <br>
@@ -41,6 +39,12 @@ In order to build & push my docker images in both architectures I run: <br>
 * Check if the controller is correctly installed:  <br>
 `kubectl get ns` <br>
 
-
-
-
+## Apply k8s manifest files to my eks
+* Run the following commands:
+`cd /k8s             # change to the kubernetes folder` <br>
+`kubectl apply -k .  # and apply the kustomization file containing all the manifest resources` <br>
+`kubectl get services -o wide --namespace frontend-ns` <br>
+* You should get something like this:
+`web-loadbalancer   LoadBalancer   xxx.xxx.xxx.xxx   xxxxxxxx.eu-west-2.elb.amazonaws.com    80:30000/TCP   10m    app=web` <br>
+* Frontend is available here: http://xxxxxxxx.eu-west-2.elb.amazonaws.com 
+* And the backend API: http://xxxxxxxx.eu-west-2.elb.amazonaws.com/api/products
