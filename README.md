@@ -30,7 +30,7 @@ In order to build & push my docker images in both architectures I run: <br>
 `web-loadbalancer   LoadBalancer   xxx.xxx.xxx.xxx   xxxxxxxx.eu-west-2.elb.amazonaws.com    80:30000/TCP   10m    app=web` <br>
 
 ## After switching to eks cluster
-> Make sure that the ingress controller is installed:
+* Make sure that the ingress controller is installed:   <br>
 `curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 > get_helm.sh` <br>
 `chmod 700 get_helm.sh` <br>
 `helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx` <br>
@@ -38,7 +38,7 @@ In order to build & push my docker images in both architectures I run: <br>
 `helm upgrade --install ingress-nginx ingress-nginx/ingress-nginx \` <br>
   `--namespace ingress-nginx \` <br>
  ` --create-namespace` <br>
-> Check if the controller is correctly installed:
+* Check if the controller is correctly installed:  <br>
 `kubectl get ns` <br>
 
 
